@@ -11,12 +11,10 @@ export const ContentWrapper = () => {
     <div id="content">
        <TopBar/>
         <ContentRowTop/>
-    
+        
     </div>
     
     <Footer/>
-
-
 </div>
   )
 }

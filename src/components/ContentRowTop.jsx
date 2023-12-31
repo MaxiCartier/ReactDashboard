@@ -1,5 +1,7 @@
 import { GenresInDb } from "./GenresInDb"
 import { LastMovieInDb } from "./LastMovieInDb"
+import { ContentRowMovies } from "./ContentRowMovies"
+import { TableMovies } from "./TableMovies"
 
 export const ContentRowTop = () => {
   return (
@@ -8,12 +10,8 @@ export const ContentRowTop = () => {
         <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
     </div>
 
-
    <ContentRowMovies/>
     
-    
-
-
     <div className="row">
     
        <LastMovieInDb/>
@@ -21,6 +19,7 @@ export const ContentRowTop = () => {
         
         <GenresInDb/>
     </div>
+    <TableMovies/>
 </div>
   )
 }
