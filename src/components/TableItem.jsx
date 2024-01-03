@@ -1,30 +1,32 @@
 import PropTypes from 'prop-types'
-export const TableItem = (title, length, rating, genres, awards) => {
-    return (
-        <tr>
-            <td>{title}</td>
-            <td>{length}min</td>
-            <td>{rating}</td>
-            <td>
-                <ul>
-                    {
-                      Array.isArray(genres) && genres.map((genre, index) => <li key={index}>{genre}</li> )
-                    }
-                </ul>
-            </td>
-            <td>{awards}</td>
-        </tr>
-    )
+export const TableItem = ({movie: {id,title, length, awards, rating, genre}, handleEditMovie, handleDeleteMovie}) => {
+  return (
+    <tr>
+    <td>{title}</td>
+    <td>{length} min</td>
+    <td>{rating}</td>
+    <td>
+      {genre?.name}
+    </td>
+    <td>{awards}</td>
+    <td>
+      <div className='d-flex'>
+          <button className='btn btn-sm btn-outline-success mr-3' onClick={() => handleEditMovie(id)}>
+            <i className='fa fa-pencil-alt'></i>
+          </button>
+          <button className='btn btn-sm btn-outline-danger' onClick={() => handleDeleteMovie(id)}>
+            <i className='fa fa-trash-alt'></i>
+          </button>
+      </div>
+      </td>
+  </tr>
+  )
 }
-
 TableItem.propTypes = {
-    title: PropTypes.string,
-    length: PropTypes.number,
-    rating: PropTypes.number,
-    genres: PropTypes.array,
-    awards: PropTypes.number,
+  movie: PropTypes.object,
+  handleEditMovie: PropTypes.func,
+  handleDeleteMovie: PropTypes.func
 }
-
 TableItem.defaultProps = {
-    genres : ['Sin género asignado']
+    genre: 'Sin genero'
 }
